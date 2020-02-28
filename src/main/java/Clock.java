@@ -90,7 +90,7 @@ public class Clock extends Application {
         hourHand.setEndX(newHour.get(0, 0));
         hourHand.setEndY(newHour.get(1, 0));
 
-        Runnable tickClock = new Runnable() {
+        final Runnable tickClock = new Runnable() {
             public void run() {
                 DoubleMatrix newSecond = rotateClockwise(new DoubleMatrix(2, 1, secondHand.getEndX(), secondHand.getEndY()), (2 * Math.PI) / 60);
                 secondHand.setEndX(newSecond.get(0, 0));
@@ -106,7 +106,7 @@ public class Clock extends Application {
             }
         };
 
-        ScheduledExecutorService ticker = Executors.newScheduledThreadPool(1);
+        final ScheduledExecutorService ticker = Executors.newScheduledThreadPool(1);
         ticker.scheduleAtFixedRate(tickClock, 0, 1, TimeUnit.SECONDS);
 
         stage.initStyle(StageStyle.TRANSPARENT);
@@ -114,6 +114,7 @@ public class Clock extends Application {
         analogueClock.setOnMouseClicked(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent mouseEvent) {
                 if (mouseEvent.getButton() == MouseButton.SECONDARY) {
+                    ticker.shutdown();
                     stage.close();
                 }
             }
