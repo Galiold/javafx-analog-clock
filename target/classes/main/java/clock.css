@@ -1,0 +1,44 @@
+.root {
+  -fx-background-color: rgba(255,255,255,0);
+  -fx-padding: 12;
+}
+
+#face {
+  -fx-fill: white;
+  -fx-stroke: black;
+  -fx-stroke-width: 5;
+}
+
+#hourHand {
+  -fx-stroke: black;
+  -fx-stroke-width: 4;
+}
+
+#minuteHand {
+  -fx-stroke: black;
+  -fx-stroke-width: 3;
+}
+
+#secondHand {
+  -fx-stroke: red;
+  -fx-stroke-width: 2;
+}
+
+#spindle {
+  -fx-fill: white;
+}
+
+.tick {
+  -fx-stroke: black;
+  -fx-stroke-width: 1;
+}
+
+.tick-heavy {
+   -fx-stroke: black;
+   -fx-stroke-width: 3;
+ }
+
+#guide {
+  -fx-font-size: 10px;
+  -fx-font-family: 'Times New Roman';
+}
